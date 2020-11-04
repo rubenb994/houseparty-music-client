@@ -1,4 +1,5 @@
-import { WebSocketServiceService } from './services/web-socket-service.service';
+import { Choice } from './models/choice';
+import { ChoiceService } from './services/choice.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,15 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'houseparty-music-client';
+  choices: Choice[];
 
-  constructor(private webSocketService: WebSocketServiceService) {}
+  constructor(private choiceService: ChoiceService) {}
 
   ngOnInit(): void {
-    console.log(this.webSocketService);
+    this.choiceService.getChoices().subscribe((choices) => {
+      this.choices = choices;
+    });
+  }
 
-    this.webSocketService.listen('test event').subscribe((data) => {
-      console.log(data);
+  public onClickSendChoice(choiceId: number): void {
+    this.choiceService.sendChoice({
+      songId: `song${choiceId}`,
     });
   }
 }
