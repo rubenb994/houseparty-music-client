@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "houseparty-music-client"
+    }
+  },
+  "defaultProject": "houseparty-music-client",
+  "cli": {
+    "analytics": false
+  }
 }
