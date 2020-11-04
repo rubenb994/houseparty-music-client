@@ -13,7 +13,7 @@ export class ChoiceService {
     this.socket.emit('new-choice', choice);
   }
 
-  public getChoices(): Observable<Choice[]> {
+  public getChoice(): Observable<any> {
     return new Observable((observer) => {
       this.socket.on('new-choice', (choice) => {
         observer.next(choice);

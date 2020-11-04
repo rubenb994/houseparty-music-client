@@ -8,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  choices: Choice[];
+  choices: Choice[] = [];
 
   constructor(private choiceService: ChoiceService) {}
 
   ngOnInit(): void {
-    this.choiceService.getChoices().subscribe((choices) => {
-      this.choices = choices;
+    this.choiceService.getChoice().subscribe((choice) => {
+      this.choices.push(choice);
+      console.log(this.choices);
     });
   }
 
