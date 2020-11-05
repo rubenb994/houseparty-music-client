@@ -1,5 +1,4 @@
-import { Choice } from './models/choice';
-import { ChoiceService } from './services/choice.service';
+import { WebSocketService } from './services/web-socket.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,32 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  choices: Choice[] = [];
+  choices = null;
 
-  constructor(private choiceService: ChoiceService) {}
+  constructor(private webSocketService: WebSocketService) {}
 
   ngOnInit(): void {
-    this.choiceService.getChoice().subscribe((choice) => {
-      this.choices.push(choice);
-      console.log(this.choices);
+    this.webSocketService.getNewVote().subscribe((choices) => {
+      console.log('Vote started message from server', choices);
+      this.choices = choices;
+    });
+
+    this.webSocketService.getEndVote().subscribe(() => {
+      console.log('Vote ended message from server');
+      this.choices = null;
     });
   }
 
-  public onClickSendChoice(choiceId: number): void {
-    this.choiceService.sendChoice({
-      songId: `song${choiceId}`,
-    });
-  }
-
-  public onClickPlay(): void {
-    this.choiceService.play();
-  }
-
-  public onClickPause(): void {
-    this.choiceService.pause();
-  }
-
-  public onClickSetupVote(): void {
-    this.choiceService.setupVote();
+  public onClickChoice(choice): void {
+    this.webSocketService.sendVote(choice.track.id);
   }
 }
