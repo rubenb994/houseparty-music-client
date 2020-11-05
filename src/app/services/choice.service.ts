@@ -20,4 +20,16 @@ export class ChoiceService {
       });
     });
   }
+
+  public play(): void {
+    this.socket.emit('play');
+  }
+
+  public pause(): void {
+    this.socket.emit('pause');
+  }
+
+  public setupVote(): void {
+    this.socket.emit('setup-vote');
+  }
 }

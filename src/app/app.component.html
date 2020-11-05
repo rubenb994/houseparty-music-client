@@ -304,6 +304,9 @@
   <div class="card highlight-card card-small">
     <button (click)="onClickSendChoice(1)">Send choice 1</button>
     <button (click)="onClickSendChoice(2)">Send choice 2</button>
+    <button (click)="onClickPlay()">Play</button>
+    <button (click)="onClickPause()">Pause</button>
+    <button (click)="onClickSetupVote()">Setup Vote</button>
 
     <p *ngFor="let choice of choices">
       {{ choice }}

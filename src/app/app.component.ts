@@ -24,4 +24,16 @@ export class AppComponent implements OnInit {
       songId: `song${choiceId}`,
     });
   }
+
+  public onClickPlay(): void {
+    this.choiceService.play();
+  }
+
+  public onClickPause(): void {
+    this.choiceService.pause();
+  }
+
+  public onClickSetupVote(): void {
+    this.choiceService.setupVote();
+  }
 }
