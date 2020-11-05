@@ -6,6 +6,7 @@ import { Socket } from 'ngx-socket-io';
   providedIn: 'root',
 })
 export class WebSocketService {
+
   constructor(private socket: Socket) {}
 
   public getNewVote(): Observable<any> {

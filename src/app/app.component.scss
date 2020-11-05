@@ -1,0 +1,27 @@
+.app-container {
+
+    .choice-container {
+        height: 100%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1;
+        grid-template-rows: 1 1;
+
+        .choice-item {
+            max-height: 50vh;
+            justify-self: center;
+            // .image-wrapper {
+            //     max-width: 100%; 
+            //     height: inherit;
+            // }
+          img {
+            border-radius: 50%;
+
+            min-width: 100%;
+            min-height: 100%;
+            display: block;
+            object-fit: cover
+          }
+        }
+      }
+}

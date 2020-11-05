@@ -1,24 +1,26 @@
-<div class="container mt-3 text-center">
+<div class="app-container">
   <div
     *ngIf="choices != null && choices.length > 0; else noVoteInProgress"
-    class="row"
+    class="choice-container"
   >
-    <h1>Vote for which track you want to hear next</h1>
     <div
       *ngFor="let choice of choices"
-      class="col-12"
+      class="choice-item"
       (click)="onClickChoice(choice)"
     >
       <h2>{{ choice.track.name }}</h2>
       by
       <h3>{{ choice.track.artists[0].name }}</h3>
-
-      <ng-container *ngIf="choice.track.album.images">
-        <img [src]="choice.track.album.images[0].url" />
-      </ng-container>
+      <div class="image-wrapper">
+        <img
+          *ngIf="choice.track.album.images"
+          [src]="choice.track.album.images[0].url"
+        />
+      </div>
     </div>
   </div>
-  <ng-template #noVoteInProgress>
-    <h1>There is no vote in progress</h1>
-  </ng-template>
 </div>
+
+<ng-template #noVoteInProgress>
+  <h1>There is no vote in progress</h1>
+</ng-template>
