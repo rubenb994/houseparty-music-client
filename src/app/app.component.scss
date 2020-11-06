@@ -1,4 +1,7 @@
 .app-container {
+    $dark-gray: #2b2b2b;
+    background-color: $dark-gray;
+    margin-top: 32px;
 
     .choice-container {
         height: 100%;
@@ -10,17 +13,31 @@
         .choice-item {
             max-height: 50vh;
             justify-self: center;
-            // .image-wrapper {
-            //     max-width: 100%; 
-            //     height: inherit;
-            // }
+            position: relative;
+
+            .text-container {
+                margin: 32px 16px;
+                position: absolute;
+                top: -30px;
+                left: -16px;
+                color: white;
+
+                h2 {
+                    font-family: 'Source Sans Pro', sans-serif;
+                    font-weight: bold;
+                    font-size: 24pt;
+                }
+
+                p {
+                    font-family: 'Cairo', sans-serif;
+                }
+            }
+
           img {
             border-radius: 50%;
-
-            min-width: 100%;
-            min-height: 100%;
-            display: block;
-            object-fit: cover
+            max-height: 40vh;
+            max-width: 90vw;
+            margin: 32px 64px 32px 16px;
           }
         }
       }
