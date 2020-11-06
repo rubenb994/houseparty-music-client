@@ -1,26 +1,61 @@
-<div class="app-container">
+<div
+  class="app-container"
+  *ngIf="choices != null && choices.length > 0; else noVoteInProgress"
+>
   <div
-    *ngIf="choices != null && choices.length > 0; else noVoteInProgress"
-    class="choice-container"
+    *ngFor="let choice of choices"
+    class="row no-gutters justify-content-center"
+    (click)="onClickChoice(choice)"
   >
-    <div
-      *ngFor="let choice of choices"
-      class="choice-item"
-      (click)="onClickChoice(choice)"
-    >
-    <div class="text-container">
+    <div class="col p-3 text-center">
       <h2 class="m-0">{{ choice.track.name }}</h2>
       <h3>{{ choice.track.artists[0].name }}</h3>
-    </div>
+
       <img
+        class="img-fluid"
         *ngIf="choice.track.album.images"
         [src]="choice.track.album.images[0].url"
       />
-     
     </div>
   </div>
 </div>
 
 <ng-template #noVoteInProgress>
-  <h1>There is no vote in progress</h1>
+    <div class="no-vote-row row no-gutters justify-content-center align-items-center">
+      <div class="col-auto text-center">
+        <h1 class="emoji">⏳</h1>
+        <h3 class="text-center">There is no vote in progress</h3>
+      </div>
+    </div>
 </ng-template>
+
+<!-- 
+<div class="row no-gutters justify-content-center">
+  <div class="col-auto">
+    <div class="app-container">
+      <div
+        *ngIf="choices != null && choices.length > 0; else noVoteInProgress"
+        class="choice-container"
+      >
+        <div
+          *ngFor="let choice of choices"
+          class="choice-item"
+          (click)="onClickChoice(choice)"
+        >
+          <div class="text-container">
+            <h2 class="m-0">{{ choice.track.name }}</h2>
+            <h3>{{ choice.track.artists[0].name }}</h3>
+          </div>
+          <img
+            *ngIf="choice.track.album.images"
+            [src]="choice.track.album.images[0].url"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noVoteInProgress>
+  <h3 class="text-white text-center">There is no vote in progress</h3>
+</ng-template> -->

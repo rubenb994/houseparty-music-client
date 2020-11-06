@@ -1,36 +1,24 @@
 .app-container {
-    display: flex;
-    align-items: center;
+  height: 100vh;
+  width: 100vw;
 
-    .choice-container {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
+  .row {
+    height: 50vh;
 
-        .choice-item {
-            max-height: 50vh;
-            margin: 8px;
-
-            .text-container {
-                color: white;
-
-                h2 {
-                    font-family: 'Source Sans Pro', sans-serif;
-                    font-weight: bold;
-                    font-size: 24pt;
-                }
-
-                p {
-                    font-family: 'Cairo', sans-serif;
-                    font-style: italic;
-                }
-            }
-
-          img {
-            border-radius: 50%;
-            max-height: 38vh;
-            max-width: 90vw;
-          }
-        }
+    .col {
+      height: 50vh;
+      img {
+        border-radius: 50%;
+        max-height: 30vh;
       }
+    }
+  }
+}
+
+.no-vote-row {
+  height: 100vh;
+
+  .emoji {
+    font-size: 60pt;
+  }
 }
