@@ -4,7 +4,7 @@
   width: 100vw;
 
   .row {
-    height: 50vh;
+    height: 40vh;
 
     .col {
       height: 50vh;
@@ -13,7 +13,15 @@
         max-height: 30vh;
       }
 
+      h2 {
+        font-size: 24pt;
+        font-weight: bold;
+        font-family: "Source Sans Pro", sans-serif;
+      }
 
+      h3 {
+        font-family: "Cairo", sans-serif;
+      }
     }
   }
 }

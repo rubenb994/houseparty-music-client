@@ -1,5 +1,6 @@
 import { WebSocketService } from './services/web-socket.service';
 import { Component, OnInit } from '@angular/core';
+import { Toaster } from 'ngx-toast-notifications';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +10,15 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   choices = null;
 
-  constructor(private webSocketService: WebSocketService) {}
+  constructor(
+    private webSocketService: WebSocketService,
+    private toaster: Toaster
+  ) {}
 
   ngOnInit(): void {
     this.webSocketService.getNewVote().subscribe((choices) => {
       console.log('Vote started message from server', choices);
       this.choices = choices;
-
       window.scrollTo(0, 0);
     });
 
@@ -26,6 +29,11 @@ export class AppComponent implements OnInit {
   }
 
   public onClickChoice(choice): void {
+    this.toaster.open(`You have voted for ${choice.track.name}`, {
+      position: 'bottom-center',
+      type: 'success',
+      preventDuplicates: true
+    });
     this.webSocketService.sendVote(choice.track.id);
   }
 }
