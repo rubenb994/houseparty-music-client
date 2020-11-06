@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
       console.log('Vote started message from server', choices);
       this.choices = choices;
 
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     });
 
     this.webSocketService.getEndVote().subscribe(() => {
