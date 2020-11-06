@@ -1,25 +1,17 @@
 .app-container {
-    $dark-gray: #2b2b2b;
-    background-color: $dark-gray;
-    margin-top: 32px;
+    display: flex;
+    align-items: center;
 
     .choice-container {
         height: 100%;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1;
-        grid-template-rows: 1 1;
+        display: flex;
+        flex-direction: column;
 
         .choice-item {
             max-height: 50vh;
-            justify-self: center;
-            position: relative;
+            margin: 8px;
 
             .text-container {
-                margin: 32px 16px;
-                position: absolute;
-                top: -30px;
-                left: -16px;
                 color: white;
 
                 h2 {
@@ -30,14 +22,14 @@
 
                 p {
                     font-family: 'Cairo', sans-serif;
+                    font-style: italic;
                 }
             }
 
           img {
             border-radius: 50%;
-            max-height: 40vh;
+            max-height: 38vh;
             max-width: 90vw;
-            margin: 32px 64px 32px 16px;
           }
         }
       }

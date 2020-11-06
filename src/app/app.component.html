@@ -8,14 +8,15 @@
       class="choice-item"
       (click)="onClickChoice(choice)"
     >
+    <div class="text-container">
+      <h2 class="m-0">{{ choice.track.name }}</h2>
+      <h3>{{ choice.track.artists[0].name }}</h3>
+    </div>
       <img
         *ngIf="choice.track.album.images"
         [src]="choice.track.album.images[0].url"
       />
-      <div class="text-container">
-        <h2 class="m-0">{{ choice.track.name }}</h2>
-        <h3>{{ choice.track.artists[0].name }}</h3>
-      </div>
+     
     </div>
   </div>
 </div>
