@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMaxYMax slice">
-    <g transform="scale(1.1069293779056897)">
+    <g transform="scale(1.1069293779056897)" opacity="0.3">
         <rect x="0" y="0" width="903.4000000000001" height="903.4000000000001" fill="#111111" />
         <circle cx="75.28" cy="75.28" r="37.64" fill="#1da72e" />
         <circle cx="225.85000000000002" cy="75.28" r="37.64" fill="#f1a9a9" />

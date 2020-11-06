@@ -29,8 +29,4 @@ export class WebSocketService {
     console.log(trackId);
     this.socket.emit('send-vote', trackId);
   }
-
-  public setupVote(): void {
-    this.socket.emit('setup-vote');
-  }
 }
